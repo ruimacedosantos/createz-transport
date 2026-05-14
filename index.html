@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CREATEZ – Transportanfrage</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: #e0e0e0; min-height: 100vh; padding: 2rem 1rem; }
+.container { max-width: 680px; margin: 0 auto; }
+h1 { font-size: 2rem; font-weight: 700; color: #ffffff; margin-bottom: 0.25rem; }
+.sub { color: #888; font-size: 0.95rem; margin-bottom: 2rem; }
+.info { border: 1px solid #2a2a2a; background: #161616; border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
+.info h2 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #2eb88a; margin-bottom: 0.75rem; }
+.info p { font-size: 0.9rem; color: #aaa; line-height: 1.6; margin-bottom: 0.5rem; }
+form { display: flex; flex-direction: column; gap: 1rem; }
+label { font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.3rem; }
+input, textarea { width: 100%; background: #161616; border: 1px solid #2a2a2a; border-radius: 6px; padding: 0.65rem 0.85rem; color: #e0e0e0; font-size: 0.95rem; }
+input:focus, textarea:focus { outline: none; border-color: #2eb88a; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+button { background: #2eb88a; color: #0f0f0f; border: none; border-radius: 6px; padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 0.5rem; }
+button:hover { background: #25a07a; }
+#msg { margin-top: 1rem; padding: 0.75rem 1rem; border-radius: 6px; font-size: 0.9rem; display: none; }
+#msg.ok { background: #1a3a2a; color: #2eb88a; display: block; }
+#msg.err { background: #3a1a1a; color: #e05a5a; display: block; }
+#msg.info { background: #1a1a2a; color: #8888dd; display: block; }
+footer { margin-top: 3rem; font-size: 0.8rem; color: #444; text-align: center; line-height: 1.8; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>CREATEZ</h1>
+  <p class="sub">Transportanfrage – Partner &amp; Aufträge</p>
+
+  <div class="info">
+    <h2>Transportkoordination</h2>
+    <p>CREATEZ koordiniert Transportlösungen über flexible Einsatzpartner – auf Anfrage verfügbar.</p>
+    <p>Dieses Formular übermittelt Ihre Anfrage direkt an unser Koordinationsteam.</p>
+  </div>
+
+  <form id="form" action="https://formsubmit.co/rui.macedo@createz.de" method="POST">
+
+    <!-- Formsubmit Konfiguration -->
+    <input type="hidden" name="_subject" value="🚚 Neue Transportanfrage – CREATEZ">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://karout.createz.de?anfrage=ok">
+
+    <div>
+      <label>Referenz / Auftraggeber</label>
+      <input name="Referenz" placeholder="z.B. Firma Müller / Auftrag-001" required>
+    </div>
+    <div class="row">
+      <div>
+        <label>Abholung PLZ / Ort</label>
+        <input name="Abholung_PLZ" placeholder="58095 Hagen" required>
+      </div>
+      <div>
+        <label>Lieferung PLZ / Ort</label>
+        <input name="Lieferung_PLZ" placeholder="44135 Dortmund" required>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label>Früheste Abholung</label>
+        <input name="Frueheste_Abholung" type="datetime-local" required>
+      </div>
+      <div>
+        <label>Späteste Lieferung</label>
+        <input name="Spaeteste_Lieferung" type="datetime-local" required>
+      </div>
+    </div>
+    <div>
+      <label>Ansprechpartner &amp; Telefon</label>
+      <input name="Ansprechpartner_Tel" placeholder="Max Mustermann · 0170 1234567" required>
+    </div>
+    <div>
+      <label>Anmerkungen / Sendungsdetails</label>
+      <textarea name="Anmerkungen" rows="3" placeholder="Art der Sendung, Gewicht, Besonderheiten..."></textarea>
+    </div>
+    <button type="submit">Anfrage senden</button>
+  </form>
+
+  <div id="msg"></div>
+
+  <footer>
+    CREATEZ GmbH &middot; Eckeseyer Str. 167 &middot; 58089 Hagen<br>
+    Geschäftsführer: Rui Macedo Santos &middot; HRB 13422 AG Hagen &middot; USt-IdNr.: DE460051708<br>
+    <a href="mailto:rui.macedo@createz.de" style="color:#555;">rui.macedo@createz.de</a>
+  </footer>
+</div>
+</body>
+</html>
